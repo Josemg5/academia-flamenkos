@@ -32,17 +32,17 @@ body {
   min-height: 100dvh;
 }
 
-/* Cursor custom solo en dispositivos con ratón de precisión */
-@media (hover: hover) and (pointer: fine) {
-  html, body {
-    cursor: none;
-  }
+/* Cursor del sistema siempre visible y natural en todo el entorno */
+html, body {
+  cursor: default;
 }
 
-@media (pointer: coarse), (hover: none) {
-  html, body {
-    cursor: auto !important;
-  }
+a, button, [role="button"], input[type="submit"], input[type="button"], label {
+  cursor: pointer;
+}
+
+input[type="text"], input[type="email"], textarea {
+  cursor: text;
 }
 
 /* Eliminar retardo de 300ms en taps móviles */
