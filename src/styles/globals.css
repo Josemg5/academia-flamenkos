@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg-vanta: #000000;
+  --bg-abyss: #030303;
+  --color-bone: #E5E5E5;
+  --color-carmine: #990000;
+  --color-carmine-bright: #CC0000;
+}
+
+html {
+  background-color: #000000;
+  color: #E5E5E5;
+  caret-color: #CC0000;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+body {
+  background-color: #000000;
+  color: #E5E5E5;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Cursor custom solo en dispositivos con ratón de precisión */
+@media (hover: hover) and (pointer: fine) {
+  html, body {
+    cursor: none;
+  }
+}
+
+@media (pointer: coarse), (hover: none) {
+  html, body {
+    cursor: auto !important;
+  }
+}
+
+/* Eliminar retardo de 300ms en taps móviles */
+button, a, [role="button"], input, textarea, select {
+  touch-action: manipulation;
+}
+
+/* Evitar auto-zoom molesto en inputs en Safari iOS (mínimo 16px) */
+@media (pointer: coarse) {
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+}
+
+/* Custom Scrollbar - Negro y Carmín puro */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #220000;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #990000;
+}
+
+/* Selección */
+::selection {
+  background: #990000;
+  color: #FFFFFF;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 1px solid #CC0000;
+  outline-offset: 3px;
+}
+
+/* Lenis smooth scrolling helpers */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Animación de grain cinematográfico */
+@keyframes grainAnimation {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-2%, -3%); }
+  30% { transform: translate(3%, 1%); }
+  50% { transform: translate(-1%, 4%); }
+  70% { transform: translate(4%, -2%); }
+  90% { transform: translate(-3%, 2%); }
+}
+
+.animate-grain {
+  animation: grainAnimation 0.4s steps(4) infinite;
+}
